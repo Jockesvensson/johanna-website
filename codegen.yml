@@ -1,0 +1,11 @@
+overwrite: true
+schema: "https://graphql.contentful.com/content/v1/spaces/8adxcrav6a1x/?access_token=hUUYkFFLDD7QlT_K9uS2GZhmryDaW1MnLUeWwTypyps"
+documents: "./src/services/**/*.{ts,tsx}"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      withHooks: true
