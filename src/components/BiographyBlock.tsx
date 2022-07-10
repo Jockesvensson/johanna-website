@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import React, { useState } from 'react'
+import React from 'react'
 import { QUERY_BIOGRAPHY_BLOCK } from '../services/query';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
