@@ -52,13 +52,13 @@ const StandardPage = () => {
                         </div>
                     ))}
                 </section>
-                <section id={locale === 'sv' ? "Biografi" : "Biography"} className={`py-8 sm:py-16 sm:px-8 bg-gray-200 ${slideShowActive}`}>
+                <section id={locale === 'sv' ? "Biografi" : "About me"} className={`py-8 sm:py-16 sm:px-8 bg-gray-200 ${slideShowActive}`}>
                     <BiographyBlock locale={locale}/>
                 </section>
-                <section id={locale === 'sv' ? "Skådespel" : "Actor"} className={`py-8 sm:py-16 sm:px-8 bg-gray-100 ${slideShowActive}`}>
+                <section id={locale === 'sv' ? "Skådespeleri" : "Professional CV"} className={`py-8 sm:py-16 sm:px-8 bg-gray-100 ${slideShowActive}`}>
                     <ActorBlock locale={locale}/>
                 </section>
-                <section id={locale === 'sv' ? "Ryttare" : "Rider"} className={`py-8 sm:py-16 sm:px-8 bg-gray-200 ${slideShowActive}`}>
+                <section id={locale === 'sv' ? "Ryttare" : "Equestrian"} className={`py-8 sm:py-16 sm:px-8 bg-gray-200 ${slideShowActive}`}>
                     <RiderBlock locale={locale}/>
                 </section>
                 <section id={locale === 'sv' ? "Filmer" : "Movies"} className={`py-8 sm:py-16 xsm:px-8 bg-gray-100 ${slideShowActive}`}>
