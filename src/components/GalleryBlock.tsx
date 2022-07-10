@@ -65,7 +65,6 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
 
     const handleCurrentImage = (index) => {
         setCurrentIndex(index);
-        console.log(index);
         setActiveDot(index);
     }
 
@@ -100,7 +99,7 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
                                     </div>
                                     <div className="dot-container">
                                         {item.imagesCollection.items.map((item, index) => (
-                                            <span className={activeDot === index ? "dot active" : "dot"} onClick={() => handleCurrentImage(index)}></span> 
+                                            <span key={index} className={currentIndex === index ? "dot active" : "dot"} onClick={() => handleCurrentImage(index)}></span>
                                         ))}
                                     </div>
                                     <img src={item.imagesCollection.items[currentIndex].url + '?w=425'} alt={item.title}/>
