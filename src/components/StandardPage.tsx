@@ -36,7 +36,7 @@ const StandardPage = () => {
     return (
         <>
             <div className="relative z-10">
-                <Navigation setNavbarOpen={setNavbarOpen} setLocale={setLocale} locale={locale}/>
+                <Navigation setNavbarOpen={setNavbarOpen} setLocale={setLocale} locale={locale} slideShowActive={slideShowActive}/>
                 <section id={locale === 'sv' ? "Hem" : "Home"} className={`min-h-50 md:min-h-screen relative bg-no-repeat bg-cover overflow-hidden ${slideShowActive}`}>
                     {data?.standardPageCollection?.items.map((item, index) => (
                         <div key={index}>
@@ -45,9 +45,7 @@ const StandardPage = () => {
                                 <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-12xl leading-small text-white">{item?.title}</h1>
                                 <div className="flex items-center mt-2 occupation">
                                     {item?.occupation?.map((occupation, index) => (
-                                        <div key={index}>
-                                            <div className="text-xl text-white md:text-2xl mx-2" key={index}>{occupation}</div>
-                                        </div>
+                                        <div className="text-xl text-white md:text-2xl mx-3 occupation-dot" key={index}>{occupation}</div>
                                     ))}
                                 </div>
                             </div>

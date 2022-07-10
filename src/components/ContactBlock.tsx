@@ -33,6 +33,7 @@ const ContactBlock = ({locale}) => {
                     <div className="flex flex-col md:flex md:flex-row">
                         <img className="mb-8 w-full sm:rounded-4xl md:w-1/2 md:mt-0 object-contain self-center" src={item.image.url + '?w=640'} alt={item.image.description}/>
                         <div className="px-8 sm:px-0 md:pl-8 flex flex-col items-center md:items-start md:justify-center">
+                            <div>
                             <div className="text-4xl mb-6">{item.contactTitle}</div>
                             <div className="flex items-center mb-2">
                                 <PhoneIcon sx={{ fontSize: 40}}/>
@@ -41,6 +42,7 @@ const ContactBlock = ({locale}) => {
                             <div className="flex items-center">
                                 <EmailIcon sx={{ fontSize: 40}}/>
                                 <div className="ml-2 text-2xl">{item.email}</div>
+                            </div>
                             </div>
                         </div>
                     </div>

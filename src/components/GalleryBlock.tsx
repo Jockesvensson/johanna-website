@@ -82,7 +82,7 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
                 <div key={index}>
                     <div className={`${slideShowOpen}`} key={index}>
                         <div className="text-6xl mb-8 sm:mb-16 text-center">{item.title}</div>
-                        <div className="max-w-7xl items-center m-auto">
+                        <div className="max-w-7xl items-center m-auto px-8 sm:px-0">
                             <div className="flex flex-col gap-8 justify-center items-center xsm:grid xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xsm:gap-4 relative gallery-container">
                                 {item.imagesCollection.items.map((image, index) => (
                                     <img className="cursor-pointer" key={index} src={image.url + '?w=425'} alt={image.description} onClick={() => handleImageSlide(index)}/>
@@ -103,7 +103,7 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
                                             <span className={activeDot === index ? "dot active" : "dot"} onClick={() => handleCurrentImage(index)}></span> 
                                         ))}
                                     </div>
-                                    <img src={item.imagesCollection.items[currentIndex].url} alt={item.title}/>
+                                    <img src={item.imagesCollection.items[currentIndex].url + '?w=425'} alt={item.title}/>
                                     <div className="text-container">
                                         <div className="text">{item.imagesCollection.items[currentIndex].description}</div>
                                     </div>

@@ -22,7 +22,7 @@ interface Items {
     twitter: string;
 }
 
-const Navigation = ({setNavbarOpen, setLocale, locale}) => {
+const Navigation = ({setNavbarOpen, setLocale, locale, slideShowActive}) => {
 
     const { data, error, loading } = useQuery<NavigationCollection>(QUERY_NAVIGATION, { variables: {locale: locale} });
     const [animate, setAnimate] = useState<boolean>(false);
@@ -58,7 +58,7 @@ const Navigation = ({setNavbarOpen, setLocale, locale}) => {
     const setMenyClass = menu ? 'menu' : 'menu close'
 
     return (
-        <nav className="fixed flex items-center w-full top-0 z-30 xsm:px-8">
+        <nav className={`fixed flex items-center w-full top-0 z-30 xsm:px-8 ${slideShowActive}`}>
             <div className="w-full max-w-7xl my-0 mx-auto">
                 <div className="flex justify-end">
                     <div className={`cursor-pointer p-6 sm:p-8 text-4xl bg-green-200 text-black ${setMenyClass} hover:text-gray-400 duration-200`} onClick={() => openNavbar()}>{menuName}</div>
@@ -67,18 +67,18 @@ const Navigation = ({setNavbarOpen, setLocale, locale}) => {
                         <div className="flex justify-end">
                             <FontAwesomeIcon className="p-6 sm:p-8 bg-white text-black text-4xl cursor-pointer hover:bg-gray-300 duration-300" icon={faXmark} onClick={() => closeNavbar()}/>
                         </div>
-                        <div className="flex flex-col items-center mt-8 sm:mt-16">
+                        <div className="flex flex-col items-center mt-6 sm:mt-16">
                             {item.navigationItems.map((navigationItem, index) => (
-                                <div className="my-2 sm:my-4 text-3xl sm:text-4xl cursor-pointer hover:text-white duration-300 hover:text-5xl" key={index} onClick={() => handleNavigation(navigationItem)}>{navigationItem}</div>
+                                <div className="my-1 sm:my-4 text-3xl sm:text-4xl cursor-pointer hover:text-white duration-300 hover:text-5xl" key={index} onClick={() => handleNavigation(navigationItem)}>{navigationItem}</div>
                             ))}
                         </div>
-                        <div className="flex justify-center mt-8">
+                        <div className="flex justify-center mt-4 sm:mt-8">
                             <FacebookIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.facebook)}/>
                             <InstagramIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.instagram)}/>
                             <YouTubeIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.youtube)}/>
                             <TwitterIcon className="cursor-pointer" sx={{ fontSize: 40, marginLeft: '0.5rem'}} onClick={() => window.open(item.twitter)}/>
                         </div>
-                        <div className="flex justify-center mt-8">
+                        <div className="flex justify-center mt-4 sm:mt-8">
                             <img className="w-10 h-10 mr-4 cursor-pointer" src="http://purecatamphetamine.github.io/country-flag-icons/3x2/SE.svg" alt="Sweden" onClick={() => {setLocale('sv'); setMenuName('Meny'); handleLanguage()}}/>
                             <img className="w-10 h-10 cursor-pointer" src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg" alt="Sweden" onClick={() => {setLocale('en'); setMenuName('Menu'); handleLanguage()}}/>
                         </div>

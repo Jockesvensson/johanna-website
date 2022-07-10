@@ -44,7 +44,7 @@ const VideoBlock = ({locale}) => {
             {data?.videoBlockCollection.items.map((item, index) => (
                 <div key={index}>
                     <div className="text-6xl mb-8 sm:mb-16 text-center">{item.title}</div>
-                    <div className="max-w-7xl items-center m-auto">
+                    <div className="max-w-7xl items-center m-auto px-8 sm:px-0">
                         <div className="flex flex-col sm:grid sm:grid-cols-2 gap-8 relative w-full sm:overflow-hidden aspect-video">
                             {documentToReactComponents(item.videoLinks.json, options)}
                         </div>

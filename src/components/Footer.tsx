@@ -28,7 +28,7 @@ const Footer = ({locale}) => {
         <>  
             {data?.footerCollection.items.map((item, index) => (
                 <div className="flex flex-col sm:flex-row sm:justify-between items-center w-full max-w-7xl m-auto" key={index}>
-                    <div className="mb-4 sm:mb-0 text-4xl">{item.copyright}</div>
+                    <div className="mb-4 sm:mb-0 text-3xl sm:text-4xl">{item.copyright}</div>
                     <div>
                         <FacebookIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.facebook)}/>
                         <InstagramIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.instagram)}/>
