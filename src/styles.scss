@@ -5,6 +5,15 @@
     opacity: 0;
 }
 
+.img-loading {
+    filter: blur(10px);
+    clip-path: inset(0)
+}
+
+.img-loaded {
+    filter: blur(0px);
+}
+
 .occupation-dot {
     position: relative;
 
@@ -245,4 +254,10 @@ iframe {
         width: 50px;
         background-color: gray;
     }
+}
+
+//Biography Block
+.biography-img {
+    width: 650px;
+    height: 400px;
 }

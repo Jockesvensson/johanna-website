@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
-const { REACT_APP_SPACE_ID, REACT_APP_ACCESS_TOKEN } = process.env;
+const { REACT_APP_SPACE_ID, REACT_APP_ACCESS_asd } = process.env;
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   uri: `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
   headers: {
-    Authorization: `Bearer ${REACT_APP_ACCESS_TOKEN}`
+    Authorization: `Bearer ${REACT_APP_ACCESS_asd}`
   },
 });
 
