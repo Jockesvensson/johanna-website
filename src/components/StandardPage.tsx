@@ -63,7 +63,7 @@ const StandardPage = () => {
                         <section id={locale === 'sv' ? "Hem" : "Home"} className={`min-h-50 md:min-h-screen relative bg-no-repeat bg-cover overflow-hidden ${slideShowActive}`}>
                             {data?.standardPageCollection?.items.map((item, index) => (
                                 <div key={index}>
-                                    <img className={`absolute top-0 left-0 bottom-0 w-full m-0 overflow-hidden ${customClass}`} src={imgSrc} alt={item.image.description} />
+                                    <img className={`absolute top-0 left-0 bottom-0 w-full h-full object-cover m-0 overflow-hidden ${customClass}`} src={imgSrc} alt={item.image.description} />
                                     <div className="absolute bottom-8 left-0 w-full flex flex-col items-center">
                                         <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-12xl leading-small text-white">{item?.title}</h1>
                                         <div className="flex items-center mt-2 occupation">
