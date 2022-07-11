@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { QUERY_BIOGRAPHY_BLOCK } from '../services/query';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
@@ -41,7 +41,7 @@ const BiographyBlock = ({locale}) => {
                         <div className="px-8 sm:px-0 md:pr-8 flex flex-col justify-center">
                             <div className="text-lg lg:text-xl">{documentToReactComponents(item.text.json)}</div>
                         </div>
-                        <img className="mt-8 w-full sm:rounded-4xl md:w-1/2 md:mt-0 object-contain self-center biography-img" src={item.image.url + '?w=640'} alt={item.image.description}/>
+                        <img className="mt-8 w-full sm:rounded-4xl md:w-1/2 md:mt-0 object-contain self-center" src={item.image.url + '?w=640'} alt={item.image.description}/>
                     </div>
                 </div>
             ))}
