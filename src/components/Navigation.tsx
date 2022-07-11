@@ -6,7 +6,6 @@ import { QUERY_NAVIGATION } from '../services/query';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import TwitterIcon from '@mui/icons-material/Twitter';
 
 interface NavigationCollection {
     navigationCollection: {
@@ -19,7 +18,6 @@ interface Items {
     facebook: string;
     instagram: string;
     youtube: string;
-    twitter: string;
 }
 
 const Navigation = ({setNavbarOpen, setLocale, locale, slideShowActive}) => {
@@ -76,7 +74,6 @@ const Navigation = ({setNavbarOpen, setLocale, locale, slideShowActive}) => {
                             <FacebookIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.facebook)}/>
                             <InstagramIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.instagram)}/>
                             <YouTubeIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.youtube)}/>
-                            <TwitterIcon className="cursor-pointer" sx={{ fontSize: 40, marginLeft: '0.5rem'}} onClick={() => window.open(item.twitter)}/>
                         </div>
                         <div className="flex justify-center mt-4 sm:mt-8">
                             <img className="w-10 h-10 mr-4 cursor-pointer" src="http://purecatamphetamine.github.io/country-flag-icons/3x2/SE.svg" alt="Sweden" onClick={() => {setLocale('sv'); setMenuName('Meny'); handleLanguage()}}/>

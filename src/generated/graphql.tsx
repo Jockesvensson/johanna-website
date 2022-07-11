@@ -417,6 +417,7 @@ export type AssetLinkingCollections = {
   galleryBlockCollection?: Maybe<GalleryBlockCollection>;
   riderBlockCollection?: Maybe<RiderBlockCollection>;
   standardPageCollection?: Maybe<StandardPageCollection>;
+  testCollection?: Maybe<TestCollection>;
 };
 
 
@@ -469,6 +470,14 @@ export type AssetLinkingCollectionsRiderBlockCollectionArgs = {
 
 
 export type AssetLinkingCollectionsStandardPageCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type AssetLinkingCollectionsTestCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
@@ -1283,6 +1292,8 @@ export type Query = {
   riderBlockCollection?: Maybe<RiderBlockCollection>;
   standardPage?: Maybe<StandardPage>;
   standardPageCollection?: Maybe<StandardPageCollection>;
+  test?: Maybe<Test>;
+  testCollection?: Maybe<TestCollection>;
   videoBlock?: Maybe<VideoBlock>;
   videoBlockCollection?: Maybe<VideoBlockCollection>;
 };
@@ -1448,6 +1459,23 @@ export type QueryStandardPageCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<StandardPageFilter>;
+};
+
+
+export type QueryTestArgs = {
+  id: Scalars['String'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryTestCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<TestOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TestFilter>;
 };
 
 
@@ -1735,6 +1763,84 @@ export type SysFilter = {
   publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/test) */
+export type Test = Entry & {
+  __typename?: 'Test';
+  contentfulMetadata: ContentfulMetadata;
+  image?: Maybe<Asset>;
+  linkedFrom?: Maybe<TestLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/test) */
+export type TestImageArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/test) */
+export type TestLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/test) */
+export type TestNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+export type TestCollection = {
+  __typename?: 'TestCollection';
+  items: Array<Maybe<Test>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type TestFilter = {
+  AND?: InputMaybe<Array<InputMaybe<TestFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<TestFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  image_exists?: InputMaybe<Scalars['Boolean']>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type TestLinkingCollections = {
+  __typename?: 'TestLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type TestLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum TestOrder {
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 /** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/videoBlock) */
 export type VideoBlock = Entry & {
   __typename?: 'VideoBlock';
@@ -1851,7 +1957,7 @@ export type NavigationQueryVariables = Exact<{
 }>;
 
 
-export type NavigationQuery = { __typename?: 'Query', navigationCollection?: { __typename?: 'NavigationCollection', items: Array<{ __typename?: 'Navigation', navigationItems?: Array<string | null> | null, facebook?: string | null, instagram?: string | null, youtube?: string | null, twitter?: string | null } | null> } | null };
+export type NavigationQuery = { __typename?: 'Query', navigationCollection?: { __typename?: 'NavigationCollection', items: Array<{ __typename?: 'Navigation', navigationItems?: Array<string | null> | null, facebook?: string | null, instagram?: string | null, youtube?: string | null } | null> } | null };
 
 export type BiographyBlockQueryVariables = Exact<{
   locale: Scalars['String'];
@@ -1879,7 +1985,7 @@ export type FooterQueryVariables = Exact<{
 }>;
 
 
-export type FooterQuery = { __typename?: 'Query', footerCollection?: { __typename?: 'FooterCollection', items: Array<{ __typename?: 'Footer', title?: string | null, copyright?: string | null, facebook?: string | null, instagram?: string | null, youtube?: string | null, twitter?: string | null } | null> } | null };
+export type FooterQuery = { __typename?: 'Query', footerCollection?: { __typename?: 'FooterCollection', items: Array<{ __typename?: 'Footer', title?: string | null, copyright?: string | null, facebook?: string | null, instagram?: string | null, youtube?: string | null } | null> } | null };
 
 export type VideoBlockQueryVariables = Exact<{
   locale: Scalars['String'];
@@ -1953,7 +2059,6 @@ export const NavigationDocument = gql`
       facebook
       instagram
       youtube
-      twitter
     }
   }
 }
@@ -2136,7 +2241,6 @@ export const FooterDocument = gql`
       facebook
       instagram
       youtube
-      twitter
     }
   }
 }

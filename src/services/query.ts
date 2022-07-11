@@ -38,7 +38,6 @@ export const QUERY_NAVIGATION = gql`
         facebook
         instagram
         youtube
-        twitter
       }
     }
   }
@@ -112,8 +111,7 @@ export const QUERY_FOOTER = gql`
         copyright
         facebook
         instagram
-        youtube
-        twitter
+        youtube     
       }
     }
   }

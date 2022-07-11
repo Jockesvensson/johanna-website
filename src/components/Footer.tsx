@@ -4,7 +4,6 @@ import { QUERY_FOOTER } from '../services/query';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import TwitterIcon from '@mui/icons-material/Twitter';
 
 interface FooterCollection {
     footerCollection: {
@@ -17,7 +16,6 @@ interface Items {
     facebook: string;
     instagram: string;
     youtube: string;
-    twitter: string;
 }
 
 const Footer = ({locale}) => {
@@ -33,7 +31,6 @@ const Footer = ({locale}) => {
                         <FacebookIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.facebook)}/>
                         <InstagramIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.instagram)}/>
                         <YouTubeIcon className="cursor-pointer" sx={{ fontSize: 40, marginRight: '0.5rem'}} onClick={() => window.open(item.youtube)}/>
-                        <TwitterIcon className="cursor-pointer" sx={{ fontSize: 40, marginLeft: '0.5rem'}} onClick={() => window.open(item.twitter)}/>
                     </div>
                 </div>
             ))}
