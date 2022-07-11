@@ -813,7 +813,6 @@ export type Footer = Entry & {
   linkedFrom?: Maybe<FooterLinkingCollections>;
   sys: Sys;
   title?: Maybe<Scalars['String']>;
-  twitter?: Maybe<Scalars['String']>;
   youtube?: Maybe<Scalars['String']>;
 };
 
@@ -844,12 +843,6 @@ export type FooterLinkedFromArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/footer) */
 export type FooterTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/footer) */
-export type FooterTwitterArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
@@ -900,13 +893,6 @@ export type FooterFilter = {
   title_not?: InputMaybe<Scalars['String']>;
   title_not_contains?: InputMaybe<Scalars['String']>;
   title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  twitter?: InputMaybe<Scalars['String']>;
-  twitter_contains?: InputMaybe<Scalars['String']>;
-  twitter_exists?: InputMaybe<Scalars['Boolean']>;
-  twitter_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  twitter_not?: InputMaybe<Scalars['String']>;
-  twitter_not_contains?: InputMaybe<Scalars['String']>;
-  twitter_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   youtube?: InputMaybe<Scalars['String']>;
   youtube_contains?: InputMaybe<Scalars['String']>;
   youtube_exists?: InputMaybe<Scalars['Boolean']>;
@@ -946,8 +932,6 @@ export enum FooterOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
-  TwitterAsc = 'twitter_ASC',
-  TwitterDesc = 'twitter_DESC',
   YoutubeAsc = 'youtube_ASC',
   YoutubeDesc = 'youtube_DESC'
 }
@@ -1137,7 +1121,6 @@ export type Navigation = Entry & {
   navigationItems?: Maybe<Array<Maybe<Scalars['String']>>>;
   sys: Sys;
   title?: Maybe<Scalars['String']>;
-  twitter?: Maybe<Scalars['String']>;
   youtube?: Maybe<Scalars['String']>;
 };
 
@@ -1168,12 +1151,6 @@ export type NavigationNavigationItemsArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/navigation) */
 export type NavigationTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/8adxcrav6a1x/content_types/navigation) */
-export type NavigationTwitterArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
@@ -1221,13 +1198,6 @@ export type NavigationFilter = {
   title_not?: InputMaybe<Scalars['String']>;
   title_not_contains?: InputMaybe<Scalars['String']>;
   title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  twitter?: InputMaybe<Scalars['String']>;
-  twitter_contains?: InputMaybe<Scalars['String']>;
-  twitter_exists?: InputMaybe<Scalars['Boolean']>;
-  twitter_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  twitter_not?: InputMaybe<Scalars['String']>;
-  twitter_not_contains?: InputMaybe<Scalars['String']>;
-  twitter_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   youtube?: InputMaybe<Scalars['String']>;
   youtube_contains?: InputMaybe<Scalars['String']>;
   youtube_exists?: InputMaybe<Scalars['Boolean']>;
@@ -1265,8 +1235,6 @@ export enum NavigationOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
-  TwitterAsc = 'twitter_ASC',
-  TwitterDesc = 'twitter_DESC',
   YoutubeAsc = 'youtube_ASC',
   YoutubeDesc = 'youtube_DESC'
 }

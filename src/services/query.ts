@@ -1,20 +1,5 @@
 import { gql } from '@apollo/client'
 
-// export const QUERY_STANDARD_PAGE = gql`
-//   query StandardPage {
-//     standardPageCollection {
-//       items {
-//         title
-//         occupation
-//         image {
-//           url
-//           description
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const QUERY_STANDARD_PAGE = gql`
   query StandardPage($locale: String!) {
     standardPageCollection(locale: $locale) {
