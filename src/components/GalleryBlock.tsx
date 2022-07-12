@@ -23,15 +23,19 @@ interface Items {
 
 const GalleryBlock = ({setSlideShowOpen, locale}) => {
 
-    const { data, error, loading } = useQuery<GalleryBlockCollection>(QUERY_GALLERY_BLOCK, { variables: {locale: locale} });
+    const { data, loading } = useQuery<GalleryBlockCollection>(QUERY_GALLERY_BLOCK, { variables: {locale: locale} });
 
     const [openSlideshow, setOpenSlideShow] = useState<boolean>(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [maxImages, setMaxImages] = useState<ImageItems[][] | any>([]);
     const [slideShowActive, setSlideShowActive] = useState<boolean>(false);
     const [activeDot, setActiveDot] = useState<number>(0);
+    const [prevAnimation, setPrevAnimation] = useState<string>('');
+    const [nextAnimation, setNextAnimation] = useState<string>('');
 
     const slideShowOpen = slideShowActive ? 'slideshow-open' : '';
+    const imageAnimationPrev = prevAnimation === 'startPrevAnimation' ? 'animate-prev-img' : '';
+    const imageAnimationNext = nextAnimation === 'startNextAnimation' ? 'animate-next-img' : '';
 
     useEffect(() => {
         setMaxImages(data?.galleryBlockCollection.items.map(item => item.imagesCollection.items))
@@ -53,6 +57,11 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
         } else {
             setCurrentIndex(currentIndex - 1);
         }
+        setPrevAnimation('startPrevAnimation');
+        setNextAnimation('');
+        setTimeout(() => {
+            setPrevAnimation('');
+        }, 250);
     }
 
     const nextImage = () => {
@@ -61,6 +70,11 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
         } else {
             setCurrentIndex(currentIndex + 1);
         }
+        setNextAnimation('startNextAnimation');
+        setPrevAnimation('');
+        setTimeout(() => {
+            setNextAnimation('');
+        }, 250);
     }
 
     const handleCurrentImage = (index) => {
@@ -102,7 +116,7 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
                                             <span key={index} className={currentIndex === index ? "dot active" : "dot"} onClick={() => handleCurrentImage(index)}></span>
                                         ))}
                                     </div>
-                                    <img src={item.imagesCollection.items[currentIndex].url + '?w=425'} alt={item.title}/>
+                                    <img className={`${imageAnimationNext} ${imageAnimationPrev}`} src={item.imagesCollection.items[currentIndex].url + '?w=425'} alt={item.title}/>
                                     <div className="text-container">
                                         <div className="text">{item.imagesCollection.items[currentIndex].description}</div>
                                     </div>
