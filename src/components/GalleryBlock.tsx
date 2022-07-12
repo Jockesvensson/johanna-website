@@ -57,11 +57,7 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
         } else {
             setCurrentIndex(currentIndex - 1);
         }
-        setPrevAnimation('startPrevAnimation');
-        setNextAnimation('');
-        setTimeout(() => {
-            setPrevAnimation('');
-        }, 250);
+        handleAnimationPrevImage();
     }
 
     const nextImage = () => {
@@ -70,16 +66,17 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
         } else {
             setCurrentIndex(currentIndex + 1);
         }
-        setNextAnimation('startNextAnimation');
-        setPrevAnimation('');
-        setTimeout(() => {
-            setNextAnimation('');
-        }, 250);
+        handleAnimationNextImage();
     }
 
     const handleCurrentImage = (index) => {
         setCurrentIndex(index);
         setActiveDot(index);
+        if (index > currentIndex) {
+            handleAnimationNextImage();
+        } else {
+            handleAnimationPrevImage();
+        }
     }
 
     const handleCloseSlideshow = () => {
@@ -87,6 +84,22 @@ const GalleryBlock = ({setSlideShowOpen, locale}) => {
         setSlideShowOpen(false);
         setSlideShowActive(false);
         document.body.style.overflow = 'unset';
+    }
+
+    const handleAnimationNextImage = () => {
+        setNextAnimation('startNextAnimation');
+        setPrevAnimation('');
+        setTimeout(() => {
+            setNextAnimation('');
+        }, 250);
+    }
+
+    const handleAnimationPrevImage = () => {
+        setPrevAnimation('startPrevAnimation');
+        setNextAnimation('');
+        setTimeout(() => {
+            setPrevAnimation('');
+        }, 250);
     }
 
     return (
