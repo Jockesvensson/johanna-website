@@ -1,3 +1,6 @@
+En hemsida som jag gjorde till min syster. Den är gjort i React samt testade graphql. Som cms är det contentful, vilket jag aldrig tidigare hade jobbat med.
+URL: https://johanna-website.vercel.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
